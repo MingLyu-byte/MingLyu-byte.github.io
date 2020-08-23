@@ -15,19 +15,16 @@ and got my High school diploma there. I graduted from Rose-Hulman Institute of T
 GPA: 3.68  
 Relevant Coursework:
 * Mathematical Modeling:
-  * <kbd>18- MA444 Deterministic Models in Operations Research </kbd>
-  * <kbd>17- MA445 Stochastic Models in Operations Research </kbd>
+  * <kbd>17 - MA445 Stochastic Models in Operations Research </kbd>
+  * <kbd>18 - MA444 Deterministic Models in Operations Research </kbd>
 * Artificial Intelligence:  
-  * <kbd>17- MA384 Data Mining </kbd>
-  * <kbd>18- CSSE415 Machine Learning</kbd>
-  * <kbd>19- CSSE416 Deep Learning</kbd>
-* Theory:
-  * Foundations of Programming Languages
-  * Complexity Theory
+  * <kbd>17 - MA384 Data Mining </kbd>
+  * <kbd>18 - CSSE415 Machine Learning</kbd>
+  * <kbd>19 - CSSE416 Deep Learning</kbd>
 * Algorithms:
-  * Algorithm Design and Analysis
-  * Parallel and Sequential Data Structures and Algorithms
-
+  * <kbd>17 - CSSE230 Data Structures and Algorithm Analysis</kbd>
+  * <kbd>19 - CSSE473 Design and Analysis of Algorithms</kbd>
+  
 ### M.S. University of Southern California
 GPA:  
 Relevant Coursework:
