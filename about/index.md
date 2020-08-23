@@ -12,11 +12,11 @@ and got my High school diploma there. I graduted from Rose-Hulman Institute of T
 
 ## Education
 ### B.S. Rose-Hulman Institute of Technology
-GPA: 3.68
+GPA: 3.68  
 Relevant Coursework:
 
 ### M.S. University of Southern California
-GPA: 
+GPA:  
 Relevant Coursework:
 
 ## Experience
