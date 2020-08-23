@@ -24,3 +24,4 @@ This is my undergraduate senior thesis for graduation requirement. I applied sto
 </object>
 
 ## Code Repo
+[Link to Code Section](https://github.com/MingLyu-byte/Senior-Project/){: .btn}
