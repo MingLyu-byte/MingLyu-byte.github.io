@@ -14,15 +14,13 @@ and got my High school diploma there. I graduted from Rose-Hulman Institute of T
 ### B.S. Rose-Hulman Institute of Technology
 GPA: 3.68  
 Relevant Coursework:
-* Graphics:
-  * Computer Graphics
-  * Computational Photography
-  * Computer Vision
-  * Physics-Based Methods in Vision
-* Systems:  
-  * Parallel Computer Architecture and Programming
-  * Intro to Computer Systems
-* Machine Learning: Intro to Machine Learning
+* Mathematical Modeling:
+  * <kbd>18- MA444 Deterministic Models in Operations Research </kbd>
+  * <kbd>17- MA445 Stochastic Models in Operations Research </kbd>
+* Artificial Intelligence:  
+  * <kbd>17- MA384 Data Mining </kbd>
+  * <kbd>18- CSSE415 Machine Learning</kbd>
+  * <kbd>19- CSSE416 Deep Learning</kbd>
 * Theory:
   * Foundations of Programming Languages
   * Complexity Theory
