@@ -86,10 +86,25 @@
 				</ul><!-- /.dl-submenu -->
 			</li>
 			<li>
-				<a href="#">Posts</a>
+                <a href="#">Internship Projects</a>
+                <ul class="dl-submenu">
+					{% for post in site.posts %}
+					    {% if post.project %}
+						    <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+						{% endif %}
+					{% endfor %}
+                    <li><a href="{{ site.url }}/projects/">All Projects</a></li>
+                </ul>
+            </li>
+			<li>
+				<a href="#">Research Projects</a>
 				<ul class="dl-submenu">
-					<li><a href="{{ site.url }}/posts/">All Posts</a></li>
-					<li><a href="{{ site.url }}/tags/">All Tags</a></li>
+					{% for post in site.posts %}
+						{% if post.research %}
+							<li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+						{% endif %}
+				    {% endfor %}
+				    <li><a href="{{ site.url }}/research/">All Reseach Projects</a></li>
 				</ul>
 			</li>
 			{% for link in site.data.navigation %}
