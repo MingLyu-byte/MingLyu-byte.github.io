@@ -14,6 +14,7 @@ and got my High school diploma there. I graduted from Rose-Hulman Institute of T
 ### B.S. Rose-Hulman Institute of Technology
 GPA: 3.68  
 Relevant Coursework:
+<img style="float: right;" src ="/assets/img/1200px-Rose–Hulman_Fightin'_Engineers_logo.svg.png?sanitize=true">
 * Mathematical Modeling:
   * <kbd>17 - MA445 Stochastic Models in Operations Research </kbd>
   * <kbd>18 - MA444 Deterministic Models in Operations Research </kbd>
