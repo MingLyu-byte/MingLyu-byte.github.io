@@ -13,6 +13,7 @@ and got my High school diploma there. I graduted from Rose-Hulman Institute of T
 ## Education
 ### B.S. Rose-Hulman Institute of Technology
 <img style="float: left;" src ="/assets/img/picresize.png?sanitize=true">  
+
 GPA: 3.68  
 Relevant Coursework:
 * Mathematical Modeling:
