@@ -1,6 +1,6 @@
 ---
 layout: research
 title: Research
-excerpt: "research"
+excerpt: "research project"
 comments: false
 ---
