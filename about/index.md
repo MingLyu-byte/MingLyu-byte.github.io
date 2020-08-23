@@ -14,6 +14,21 @@ and got my High school diploma there. I graduted from Rose-Hulman Institute of T
 ### B.S. Rose-Hulman Institute of Technology
 GPA: 3.68  
 Relevant Coursework:
+* Graphics:
+  * Computer Graphics
+  * Computational Photography
+  * Computer Vision
+  * Physics-Based Methods in Vision
+* Systems:  
+  * Parallel Computer Architecture and Programming
+  * Intro to Computer Systems
+* Machine Learning: Intro to Machine Learning
+* Theory:
+  * Foundations of Programming Languages
+  * Complexity Theory
+* Algorithms:
+  * Algorithm Design and Analysis
+  * Parallel and Sequential Data Structures and Algorithms
 
 ### M.S. University of Southern California
 GPA:  
