@@ -21,6 +21,7 @@ Relevant Coursework:
   * <kbd>17 - MA384 Data Mining </kbd>
   * <kbd>18 - CSSE415 Machine Learning</kbd>
   * <kbd>19 - CSSE416 Deep Learning</kbd>
+  * <kbd>19 - CSSE463 Image Recognition</kbd>
 * Algorithms:
   * <kbd>17 - CSSE230 Data Structures and Algorithm Analysis</kbd>
   * <kbd>19 - CSSE473 Design and Analysis of Algorithms</kbd>
