@@ -24,6 +24,10 @@ Relevant Coursework:
 * Algorithms:
   * <kbd>17 - CSSE230 Data Structures and Algorithm Analysis</kbd>
   * <kbd>19 - CSSE473 Design and Analysis of Algorithms</kbd>
+* Probability and Statistics:
+  * <kbd>16 - MA381 Introduction to Probability with Applications to Statistics</kbd>
+  * <kbd>20 - MA483 Bayesian Data Analysis</kbd>
+  * <kbd>20 - MA485 Applied Linear Regression</kbd>
   
 ### M.S. University of Southern California
 GPA:  
