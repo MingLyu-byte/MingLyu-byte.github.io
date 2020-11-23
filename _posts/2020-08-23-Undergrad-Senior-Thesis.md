@@ -14,7 +14,7 @@ tag:
 comments: true
 ---
 
-This is my undergraduate senior thesis for graduation requirement. I completed my senior thesis under the supervision of Dr.John McSweeney. We applied stochastic process to the bike sharing system to explore interesting behaviors. The initial model starts from the basic Queueing theory model. We developed more complex models by adding more features and constraints that simulates in a more practical environment. The behaviors that we explored includes stationary distribution, waiting lists and more. 
+This is my undergraduate senior thesis for graduation requirement. I completed my senior thesis under the supervision of Dr.John McSweeney. We applied stochastic process to the bike sharing system to explore interesting behaviors. The initial model starts from the basic Queueing theory model. We developed more complex models by adding more features and constraints that simulates in a more practical environment. The behaviors that we explored includes stationary distribution, waiting lists and more. We also include visualization of the simulation to better interpret the result. 
 
 ## Full Paper
 <object data="/assets/Projects/Senior_Project.pdf" type="application/pdf" width="300px" height="300px">
