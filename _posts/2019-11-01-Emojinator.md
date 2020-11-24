@@ -14,12 +14,20 @@ tag:
 comments: true
 ---
 
+## Neural Network Architecture
+
+We use pretrained neural network **VGG16** as basic model to develop our neural network. We choose the transfer learning method here because it saves us a lot of time from training. We also freeze the weights in the pretrained neural network by setting vgg16.layers[0].trainable = False. The summary of the model is below the code section.
+
 {% highlight python %}
 {% raw %}
 vgg16 = Sequential(VGG16(weights = 'imagenet',input_shape = (50,50,3),include_top = False))
 vgg16.add(Flatten())
 vgg16.add(Dense(12,activation = 'relu'))
 vgg16.add(Dense(12,activation = 'softmax'))
+vgg16.layers[0].trainable = False
+vgg16.compile(loss = 'sparse_categorical_crossentropy',
+             optimizer = 'Adam',
+             metrics = ['accuracy'])
 vgg16.summary()
 {% endraw %}
 {% endhighlight %}
