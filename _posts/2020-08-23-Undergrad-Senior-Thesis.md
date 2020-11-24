@@ -8,7 +8,7 @@ tag:
 - stochastic process
 - mathematical modeling
 - Python
-- Juypter Notebook
+- Jupyter Notebook
 - Bike Sharing
 - Queeing Theory
 comments: true
