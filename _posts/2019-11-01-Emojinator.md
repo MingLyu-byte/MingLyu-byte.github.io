@@ -32,6 +32,11 @@ vgg16.summary()
 {% endraw %}
 {% endhighlight %}
 
+<figure>
+	<a href="/img/emojinator/VGG16_model_summary.png"><img src="/img/emojinator/VGG16_model_summary.png"></a>
+	<figcaption>Model Summary</figcaption>
+</figure>
+
 ## Full Report
 <object data="/assets/Projects/Emojinator_Final_Report.pdf" type="application/pdf" width="300px" height="300px">
   <embed src="/assets/Projects/Emojinator_Final_Report.pdf">
