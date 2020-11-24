@@ -97,6 +97,8 @@ cv2.addWeighted(overlay,0.5,frame,1.0,0,frame)
 
 ## Live Demo
 
+<iframe width="560" height="315" src="/assets/Projects/Emojinator_Live_Demo.mp4" frameborder="0"> </iframe>
+
 ### For further details, please see the full report or the link to the code repo.
 
 ## Full Report
