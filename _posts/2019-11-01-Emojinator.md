@@ -54,7 +54,7 @@ vgg16.summary()
 	<figcaption>Model Summary</figcaption>
 </figure>
 
-In the report, we use a CNN (Convolutional neural network). It is an outdated model.
+In the report, we use a CNN (Convolutional neural network) model. It is an outdated model. VGG-16 is a better model and is used for live demo and testing.
 
 ## Image Processing
 
