@@ -72,7 +72,7 @@ mask = cv2.GaussianBlur(mask,(3,3),100)
 
 The examples are presented in the report.
 
-## OpenCV and Live Demo
+## OpenCV
 
 The code below display the predicted emoji. It adds a smooth transition between the emoji picture and the background so it does not look like the two are overlapping.
 
@@ -90,6 +90,8 @@ for i in range(0,emoji_h):
 cv2.addWeighted(overlay,0.5,frame,1.0,0,frame)
 {% endraw %}
 {% endhighlight %}
+
+## Live Demo
 
 ### For further details, please see the full report or the link to the code repo.
 
