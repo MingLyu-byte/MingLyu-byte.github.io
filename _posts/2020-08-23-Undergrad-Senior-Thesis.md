@@ -3,7 +3,7 @@ layout: post
 title:  "Undergraduate Senior Thesis"
 date:   2020-08-23
 excerpt: "Undergraduate Thesis for Graduation Requirement."
-project: true
+research: true
 tag:
 - stochastic process
 - mathematical modeling
