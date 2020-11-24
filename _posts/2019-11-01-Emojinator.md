@@ -97,7 +97,7 @@ cv2.addWeighted(overlay,0.5,frame,1.0,0,frame)
 
 ## Live Demo
 
-<iframe width="560" height="315" src="//www.youtube.com/watch?v=_fLchlcmyHo&feature=youtu.be" frameborder="0"> </iframe>
+Check this youtube link for a short live demo: <https://youtu.be/_fLchlcmyHo>.
 
 ### For further details, please see the full report or the link to the code repo.
 
