@@ -2,7 +2,7 @@
 layout: post
 title:  "Deep Learning Emojinator"
 date:   2019-11-01
-excerpt: "Deep Learning Project"
+excerpt: "Transform Hand Gestures into Emojis Using Deep Learning"
 project: true
 tag:
 - Deep Learning
