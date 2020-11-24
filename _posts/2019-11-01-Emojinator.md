@@ -8,9 +8,11 @@ tag:
 - Deep Learning
 - Image Processing
 - Python
-- Juypter Notebook
+- Jupyter Notebook
 - OpenCV
 - Emojis
+- Tensorflow
+- Keras
 comments: true
 ---
 
