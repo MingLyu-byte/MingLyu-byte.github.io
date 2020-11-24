@@ -29,6 +29,7 @@ The input is a simple image with hand in it. The output is the predicted emoji c
 	<figcaption>Sample input, intermediate, output emoji picture</figcaption>
 </figure>
 
+We use the data from <https://github.com/akshaybahadur21/Emojinator/tree/master/gestures> and <https://github.com/akshaybahadur21/Emojinator/tree/master/hand_emo>. The idea of this project starts from the presentation in the github repo mentioned above. We want to reconstruct the application by ourselves. Thanks for Akshay Bahadur and Raghav Patnecha's data source.
 
 ## Neural Network Architecture
 
@@ -72,6 +73,21 @@ mask = cv2.GaussianBlur(mask,(3,3),100)
 The examples are presented in the report.
 
 ## OpenCV and Live Demo
+
+{% highlight python %}
+{% raw %}
+test_image = imagereturnshrink(emojiset,pred_class,10)
+frame = cv2.cvtColor(frame, cv2.COLOR_BGR2BGRA)
+frame_h,frame_w,frame_c = frame.shape
+overlay = np.zeros((frame_h,frame_w,4),dtype='uint8')
+emoji_h,emoji_w,emoji_c = test_image.shape
+for i in range(0,emoji_h):
+    for j in range(0,emoji_w):
+        if(test_image[i,j][2] != 255 and test_image[i,j][1] != 255 and test_image[i,j][0] != 255):
+            overlay[420 + i,270 + j] = test_image[i,j]
+cv2.addWeighted(overlay,0.5,frame,1.0,0,frame)
+{% endraw %}
+{% endhighlight %}
 
 ### For further details, please see the full report or the link to the code repo.
 
