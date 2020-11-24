@@ -14,6 +14,8 @@ tag:
 comments: true
 ---
 
+## Input & Output
+
 ## Neural Network Architecture
 
 We use pretrained neural network **VGG16** as basic model to develop our neural network. We choose the transfer learning method here because it saves us a lot of time from training. We also freeze the weights in the pretrained neural network by setting vgg16.layers[0].trainable = False. The summary of the model is below the code section.
@@ -38,6 +40,24 @@ vgg16.summary()
 </figure>
 
 ## Image Processing
+
+We set some color thresholds to that differ the hand from the background. There are couple image processing methods we use here including erosion, dilation and gaussian filters. The purpose of this step is to extract the hand part as much as possible and also excludes unnecessary parts.
+
+{% highlight python %}
+{% raw %}
+hsv = cv2.cvtColor(image_capture, cv2.COLOR_BGR2HSV)
+lower_skin = np.array([0,15,70], dtype=np.uint8)
+upper_skin = np.array([20,150,255], dtype=np.uint8)
+mask = cv2.inRange(hsv, lower_skin, upper_skin)
+mask = cv2.erode(mask,kernel,iterations = 2)
+mask = cv2.dilate(mask,kernel,iterations = 7)
+mask = cv2.GaussianBlur(mask,(3,3),100)
+{% endraw %}
+{% endhighlight %}
+
+The examples are presented in the report.
+
+
 
 ## OpenCV and Live Demo
 
