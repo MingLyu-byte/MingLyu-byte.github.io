@@ -74,6 +74,8 @@ The examples are presented in the report.
 
 ## OpenCV and Live Demo
 
+The code below display the predicted emoji. It adds a smooth transition between the emoji picture and the background so it does not look like the two are overlapping.
+
 {% highlight python %}
 {% raw %}
 test_image = imagereturnshrink(emojiset,pred_class,10)
