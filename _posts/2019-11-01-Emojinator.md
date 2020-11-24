@@ -54,6 +54,8 @@ vgg16.summary()
 	<figcaption>Model Summary</figcaption>
 </figure>
 
+In the report, we use a CNN (Convolutional neural network). It is an outdated model.
+
 ## Image Processing
 
 We set some color thresholds to that differ the hand from the background. There are couple image processing methods we use here including erosion, dilation and gaussian filters. The purpose of this step is to extract the hand part as much as possible and also excludes unnecessary parts.
