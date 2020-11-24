@@ -37,6 +37,10 @@ vgg16.summary()
 	<figcaption>Model Summary</figcaption>
 </figure>
 
+## Image Processing
+
+## OpenCV and Live Demo
+
 ## Full Report
 <object data="/assets/Projects/Emojinator_Final_Report.pdf" type="application/pdf" width="300px" height="300px">
   <embed src="/assets/Projects/Emojinator_Final_Report.pdf">
