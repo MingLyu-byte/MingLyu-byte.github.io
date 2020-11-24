@@ -33,7 +33,7 @@ vgg16.summary()
 {% endhighlight %}
 
 <figure>
-	<a href="/assets/img/emojinator/VGG16_model_summary.png"><img src="/assets/img/emojinator/VGG16_model_summary.png"></a>
+	<img src="/assets/img/emojinator/VGG16_model_summary.png"></a>
 	<figcaption>Model Summary</figcaption>
 </figure>
 
