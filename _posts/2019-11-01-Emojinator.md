@@ -29,7 +29,7 @@ The input is a simple image with hand in it. The output is the predicted emoji c
 	<figcaption>Sample input, intermediate, output emoji picture</figcaption>
 </figure>
 
-We use the data from <https://github.com/akshaybahadur21/Emojinator/tree/master/gestures> and <https://github.com/akshaybahadur21/Emojinator/tree/master/hand_emo>. The idea of this project starts from the presentation in the github repo mentioned above. We want to reconstruct the application by ourselves. Thanks for Akshay Bahadur and Raghav Patnecha's data source.
+We use the data from <https://github.com/akshaybahadur21/Emojinator/tree/master/gestures> and <https://github.com/akshaybahadur21/Emojinator/tree/master/hand_emo>. The idea of this project starts from the presentation in the github repo mentioned above. We want to reconstruct the application by ourselves. Thanks Akshay Bahadur and Raghav Patnecha for data source.
 
 ## Neural Network Architecture
 
