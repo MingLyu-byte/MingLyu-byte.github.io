@@ -71,9 +71,9 @@ mask = cv2.GaussianBlur(mask,(3,3),100)
 
 The examples are presented in the report.
 
-
-
 ## OpenCV and Live Demo
+
+### For further details, please see the full report or the link to the code repo.
 
 ## Full Report
 <object data="/assets/Projects/Emojinator_Final_Report.pdf" type="application/pdf" width="300px" height="300px">
