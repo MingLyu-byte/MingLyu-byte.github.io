@@ -14,7 +14,19 @@ tag:
 comments: true
 ---
 
+## Introduction
+
 ## Input & Output
+
+The input is a simple image with hand in it. The output is the predicted emoji corresponding to the hand gesture.
+
+<figure class="third">
+	<img src="/assets/img/emojinator/1_input.png">
+	<img src="/assets/img/emojinator/1_intermediate.png">
+	<img src="/assets/img/emojinator/1_emoji.png">
+	<figcaption>Sample input, intermediate, output emoji picture</figcaption>
+</figure>
+
 
 ## Neural Network Architecture
 
