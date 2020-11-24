@@ -97,6 +97,8 @@ cv2.addWeighted(overlay,0.5,frame,1.0,0,frame)
 
 ## Live Demo
 
+This is a short live demo of our project. The prediction is not stable as it is in the train and testing stage since we are feeding directly from video. Overall, we can see that most of the time the model outputs the correct prediction.
+
 ![Alt Text](/assets/Projects/Emojinator_Live_Demo.gif)
 
 ### For further details, please see the full report or the link to the code repo.
