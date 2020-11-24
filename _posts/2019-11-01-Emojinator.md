@@ -14,6 +14,16 @@ tag:
 comments: true
 ---
 
+{% highlight python %}
+{% raw %}
+vgg16 = Sequential(VGG16(weights = 'imagenet',input_shape = (50,50,3),include_top = False))
+vgg16.add(Flatten())
+vgg16.add(Dense(12,activation = 'relu'))
+vgg16.add(Dense(12,activation = 'softmax'))
+vgg16.summary()
+{% endraw %}
+{% endhighlight %}
+
 ## Full Report
 <object data="/assets/Projects/Emojinator_Final_Report.pdf" type="application/pdf" width="300px" height="300px">
   <embed src="/assets/Projects/Emojinator_Final_Report.pdf">
