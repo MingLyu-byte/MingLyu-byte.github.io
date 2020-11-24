@@ -2,7 +2,7 @@
 layout: post
 title:  "Undergraduate Senior Thesis"
 date:   2020-08-23
-excerpt: "Undergraduate senior thesis for graduation requirement."
+excerpt: "Undergraduate Thesis for Graduation Requirement."
 project: true
 tag:
 - stochastic process
