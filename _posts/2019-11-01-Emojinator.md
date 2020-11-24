@@ -16,6 +16,8 @@ comments: true
 
 ## Introduction
 
+Deep learning is a method of machine learning that uses multiple layers to automate the process of feature extraction from inputs. It has been applied in various fields, including image recognition and text analysis. For our project, we proposed a hand gesture emojinator recognitor, which takes a real-time hand image as the input and gives the predicted emoji as the output. In the training process, we applied the Convolutional neural network and VGG16. After adjusting the hyper-parameters, we get the training accuracy 1.00 and test accuracy 0.99.
+
 ## Input & Output
 
 The input is a simple image with hand in it. The output is the predicted emoji corresponding to the hand gesture.
