@@ -97,7 +97,7 @@ cv2.addWeighted(overlay,0.5,frame,1.0,0,frame)
 
 ## Live Demo
 
-Check this youtube link for a short live demo: <https://youtu.be/_fLchlcmyHo>.
+![Alt Text](/assets/Projects/Emojinator_Live_Demo.gif)
 
 ### For further details, please see the full report or the link to the code repo.
 
