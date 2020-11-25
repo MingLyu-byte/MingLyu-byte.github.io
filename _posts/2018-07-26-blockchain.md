@@ -18,9 +18,9 @@ comments: true
 I did a entry level research on Blockchain under the supervision of Dr. Nathan Chenette. Here are somethings I researched on over the summer:
 <ul>
 <li>Research on cryptocurrency and blockchain technics.</li>
-<li>Overview of popular cryptocurrencies like Bitcoin, Ethereum, and IOTA. Analyze Cryptocurrencies from their designs and architectures. (reality vs hype).</li>
-<li>Research on how regulation should be applied to Cryptocurrency. (one example is money laundry).</li>
-<li>Personal Interest in how blockchain technics will enhance the Internet of Things. (most interested in IOTA's tangle system).</li>
+<li>Overview of popular cryptocurrencies like Bitcoin, Ethereum, and IOTA. Analyze Cryptocurrencies from their designs and architectures. (reality vs hype)</li>
+<li>Research on how regulation should be applied to Cryptocurrency. (one example is money laundry)</li>
+<li>Personal Interest in how blockchain technics will enhance the Internet of Things. (most interested in IOTA's tangle system)</li>
 </ul>
 
 Below is the abstract of my report:
