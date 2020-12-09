@@ -15,7 +15,7 @@ tag:
 comments: true
 ---
 
-I did a entry level research on Blockchain under the supervision of Dr. Nathan Chenette. Here are somethings I researched on over the summer of 2017:
+I did a entry level research on Blockchain under the supervision of Dr. Nathan Chenette. Here are somethings I researched on over the summer of 2018:
 <ul>
 <li>Research on cryptocurrency and blockchain technics.</li>
 <li>Overview of popular cryptocurrencies like Bitcoin, Ethereum, and IOTA. Analyze Cryptocurrencies from their designs and architectures. (reality vs hype)</li>
