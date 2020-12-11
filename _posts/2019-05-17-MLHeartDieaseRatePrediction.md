@@ -50,7 +50,55 @@ features_test = test.drop(df.columns[0],axis=1)
 features_test = pd.get_dummies(features_test)
 features_test = (features_test - features_test.mean())/features_test.std()
 targets_test = test.heart_disease_mortality_per_100k
+{% endraw %}
+{% endhighlight %}
 
+## Lasso Regression
+
+{% highlight python %}
+{% raw %}
+grid = {'alpha':[0.0001,0.001,0.01,0.1,1,10,100,1000,10000,100000]}
+lasso = Lasso()
+lassoCV = GridSearchCV(lasso,param_grid=grid,return_train_score=True)
+lassoCV.fit(features_train,targets_train)
+
+print()
+print("best alpha",lassoCV.best_params_,'test_R2',lassoCV.best_score_)
+performance = pd.DataFrame()
+performance['alpha'] = np.log10(grid['alpha'])
+performance['train_R2'] = lassoCV.cv_results_['mean_train_score'] 
+performance['test_R2'] = lassoCV.cv_results_['mean_test_score'] 
+
+ax1 = performance.plot.line(x = 'alpha',y='train_R2')
+ax = performance.plot.line(x = 'alpha',y='test_R2',ax = ax1)
+
+la = lassoCV.best_estimator_
+coef = pd.Series(la.coef_,index = features_train.columns)
+coef.nonzero().sort_values()
+{% endraw %}
+{% endhighlight %}
+
+## Gradient Boost
+
+{% highlight python %}
+{% raw %}
+time_start = time()
+grid = {'n_estimators':np.arange(10,100,10),'max_depth':np.arange(1,10,1),'learning_rate':np.arange(0.01,1,0.1)}
+
+gb = GradientBoostingRegressor()
+gbCV = GridSearchCV(gb,param_grid=grid,return_train_score=True,n_jobs=-1)
+gbCV.fit(features_train,targets_train)
+time_stop = time()
+time_elapsed = (time_stop - time_start)/60.0
+print('time_elapsed =',round(time_elapsed,1),'min')
+
+print()
+print(gbCV.best_params_,',validation R2 =',gbCV.best_score_.round(3))
+
+gb = gbCV.best_estimator_
+R2_train = gb.score(features_train,targets_train)
+R2_test  = gb.score(features_test,targets_test)
+print('train R2 =',R2_train.round(3),'test R2 =',R2_test.round(3))
 {% endraw %}
 {% endhighlight %}
 
