@@ -28,7 +28,7 @@ Below is a picture of sample data input.
 	<figcaption>Sample Input Data</figcaption>
 </figure>
 
-The goal is to predict the heart_disease_mortality_per_100k feature using all other column features.
+The goal is to predict the heart_disease_mortality_per_100k feature using all other features.
 
 ## Data Preprocessing
 
@@ -39,7 +39,6 @@ df = df.fillna(df.mean())
 features = df.drop(['heart_disease_mortality_per_100k','row_id'],axis=1)
 features = pd.get_dummies(features)
 target = df['heart_disease_mortality_per_100k']
-features = (features - features.mean())/features.std()
 
 df.drop(['row_id'],axis=1,inplace = True)
 (train,test) = train_test_split(df,train_size=0.8,test_size=0.2)
@@ -54,6 +53,8 @@ targets_test = test.heart_disease_mortality_per_100k
 
 {% endraw %}
 {% endhighlight %}
+
+We fullfill all missing values with the mean value. The reason is given in the report. Then, we do a train and test split with respective ratios of 0.8 and 0.2. We also do a normalization on the feature values. Now, we can feed the data into machine learning models.
 
 ## Full Report
 <object data="/assets/Projects/Machine_Learning_Project_Report.pdf" type="application/pdf" width="300px" height="300px">
