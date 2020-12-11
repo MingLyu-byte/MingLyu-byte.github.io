@@ -55,30 +55,32 @@ targets_test = test.heart_disease_mortality_per_100k
 
 We fullfill all missing values with the mean value. The reason is given in the report. Then, we do a train and test split with respective ratios of 0.8 and 0.2. We also do a normalization on the feature values. Now, we can feed the data into machine learning models.
 
-## Lasso Regression
+## Ridge Regression
 
 {% highlight python %}
 {% raw %}
 grid = {'alpha':[0.0001,0.001,0.01,0.1,1,10,100,1000,10000,100000]}
-lasso = Lasso()
-lassoCV = GridSearchCV(lasso,param_grid=grid,return_train_score=True)
-lassoCV.fit(features_train,targets_train)
+ridge = Ridge()
+ridgeCV = GridSearchCV(ridge,param_grid=grid,return_train_score=True)
+ridgeCV.fit(features_train,targets_train)
 
 print()
-print("best alpha",lassoCV.best_params_,'test_R2',lassoCV.best_score_)
+print("best alpha",ridgeCV.best_params_,'test_R2',ridgeCV.best_score_)
 performance = pd.DataFrame()
 performance['alpha'] = np.log10(grid['alpha'])
-performance['train_R2'] = lassoCV.cv_results_['mean_train_score'] 
-performance['test_R2'] = lassoCV.cv_results_['mean_test_score'] 
+performance['train_R2'] = ridgeCV.cv_results_['mean_train_score'] 
+performance['test_R2'] = ridgeCV.cv_results_['mean_test_score'] 
 
 ax1 = performance.plot.line(x = 'alpha',y='train_R2')
 ax = performance.plot.line(x = 'alpha',y='test_R2',ax = ax1)
 
-la = lassoCV.best_estimator_
-coef = pd.Series(la.coef_,index = features_train.columns)
-coef.nonzero().sort_values()
+ridge = ridgeCV.best_estimator_
+coef = pd.Series(ridge.coef_,index = features_train.columns)
+coef.sort_values()
 {% endraw %}
 {% endhighlight %}
+
+Ridge Regression and code presentation. Details are presented in the report. Basically, we use the ridge regression model from scikit-learn library. We use grid search and cross validation to find the best hyperparameters. Then, we test the model on the test set. Besides, we also find the 10 most significant features as well.
 
 ## Gradient Boost
 
@@ -103,6 +105,8 @@ R2_test  = gb.score(features_test,targets_test)
 print('train R2 =',R2_train.round(3),'test R2 =',R2_test.round(3))
 {% endraw %}
 {% endhighlight %}
+
+Gradient Boost model and code presenatation. Same methodology as it is in the Ridge Regression section.
 
 ## Full Report
 <object data="/assets/Projects/Machine_Learning_Project_Report.pdf" type="application/pdf" width="300px" height="300px">
