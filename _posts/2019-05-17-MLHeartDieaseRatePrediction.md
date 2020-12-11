@@ -28,6 +28,33 @@ Below is a picture of sample data input.
 	<figcaption>Sample Input Data</figcaption>
 </figure>
 
+The goal is to predict the heart_disease_mortality_per_100k feature using all other column features.
+
+## Data Preprocessing
+
+{% highlight python %}
+{% raw %}
+df = df.fillna(df.mean())
+
+features = df.drop(['heart_disease_mortality_per_100k','row_id'],axis=1)
+features = pd.get_dummies(features)
+target = df['heart_disease_mortality_per_100k']
+features = (features - features.mean())/features.std()
+
+df.drop(['row_id'],axis=1,inplace = True)
+(train,test) = train_test_split(df,train_size=0.8,test_size=0.2)
+features_train = train.drop(df.columns[0],axis=1)
+features_train = pd.get_dummies(features_train)
+features_train = (features_train - features_train.mean())/features_train.std()
+targets_train = train.heart_disease_mortality_per_100k
+features_test = test.drop(df.columns[0],axis=1)
+features_test = pd.get_dummies(features_test)
+features_test = (features_test - features_test.mean())/features_test.std()
+targets_test = test.heart_disease_mortality_per_100k
+
+{% endraw %}
+{% endhighlight %}
+
 ## Full Report
 <object data="/assets/Projects/Machine_Learning_Project_Report.pdf" type="application/pdf" width="300px" height="300px">
   <embed src="/assets/Projects/Machine_Learning_Project_Report.pdf">
