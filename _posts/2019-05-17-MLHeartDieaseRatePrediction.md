@@ -53,6 +53,8 @@ targets_test = test.heart_disease_mortality_per_100k
 {% endraw %}
 {% endhighlight %}
 
+We fullfill all missing values with the mean value. The reason is given in the report. Then, we do a train and test split with respective ratios of 0.8 and 0.2. We also do a normalization on the feature values. Now, we can feed the data into machine learning models.
+
 ## Lasso Regression
 
 {% highlight python %}
@@ -101,8 +103,6 @@ R2_test  = gb.score(features_test,targets_test)
 print('train R2 =',R2_train.round(3),'test R2 =',R2_test.round(3))
 {% endraw %}
 {% endhighlight %}
-
-We fullfill all missing values with the mean value. The reason is given in the report. Then, we do a train and test split with respective ratios of 0.8 and 0.2. We also do a normalization on the feature values. Now, we can feed the data into machine learning models.
 
 ## Full Report
 <object data="/assets/Projects/Machine_Learning_Project_Report.pdf" type="application/pdf" width="300px" height="300px">
