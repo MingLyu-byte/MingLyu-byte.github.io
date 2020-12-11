@@ -77,6 +77,12 @@ ax = performance.plot.line(x = 'alpha',y='test_R2',ax = ax1)
 ridge = ridgeCV.best_estimator_
 coef = pd.Series(ridge.coef_,index = features_train.columns)
 coef.sort_values()
+
+rigde = Ridge(alpha=1)
+rigde.fit(features_train,targets_train)
+rigde.score(features_test,targets_test)
+print(ridge.score(features_test,targets_test))
+print(ridge.score(features_train,targets_train))
 {% endraw %}
 {% endhighlight %}
 
@@ -108,9 +114,15 @@ print('train R2 =',R2_train.round(3),'test R2 =',R2_test.round(3))
 
 Gradient Boost model and code presenatation. Same methodology as it is in the Ridge Regression section.
 
+## Other Models
+See github repo and full report for more details.
+
 ## Full Report
 <object data="/assets/Projects/Machine_Learning_Project_Report.pdf" type="application/pdf" width="300px" height="300px">
   <embed src="/assets/Projects/Machine_Learning_Project_Report.pdf">
       <p>Please download the PDF to view it: <a href="/assets/Projects/Machine_Learning_Project_Report.pdf">Download PDF</a>.</p>
   </embed>
 </object>
+
+## Code Repo
+[Link to the Code Section](https://github.com/MingLyu-byte/ML-Heart-Diease-Prediction/){: .btn}
