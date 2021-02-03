@@ -11,7 +11,7 @@ My name is Ming Lyu (吕铭). I prefer the nickname Leo. I was born in Shaoxing,
 
 ## Education
 ### B.S. in Mathematics (Applied Discrete Mathematics track), Rose-Hulman Institute of Technology
-GPA: 3.7/4.0 
+GPA: 3.7/4.0  
 Relevant Coursework:
 * Mathematical Modeling:
   * <kbd>17 - MA445 Stochastic Models in Operations Research </kbd>
@@ -30,7 +30,7 @@ Relevant Coursework:
   * <kbd>20 - MA485 Applied Linear Regression</kbd>
   
 ### M.S. in Computer Science (Data Science track), University of Southern California
-GPA:  4.0/4.0
+GPA:  4.0/4.0  
 Relevant Coursework:
 * Artificial Intelligence:  
   * <kbd>21 - CSCI561 Foundations of Artificial Intelligence (currently attending) </kbd>
