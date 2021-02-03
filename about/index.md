@@ -33,9 +33,9 @@ Relevant Coursework:
 GPA:  4.0/4.0
 Relevant Coursework:
 * Artificial Intelligence:  
-  * <kbd>17 - CSCI561 Foundations of Artificial Intelligence (currently attending) </kbd>
-  * <kbd>17 - CSCI561 Foundations of Artificial Intelligence (currently attending) </kbd>
+  * <kbd>21 - CSCI561 Foundations of Artificial Intelligence (currently attending) </kbd>
+  * <kbd>17 - CSCI544 Applied Natural Language Processing (currently attending) </kbd>
 * Algorithms:
-  * <kbd>17 - CSCI570 Analysis of Algorithms</kbd>
+  * <kbd>17 - CSCI570 Analysis of Algorithms </kbd>
 
 ## Experience
