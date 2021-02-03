@@ -10,7 +10,7 @@ comments: false
 My name is Ming Lyu (吕铭). I prefer the nickname Leo. I was born in Shaoxing, Zhejiang Province, China. (The hometown for Xun Lu, who probably is the most famous writer in China). I went to Hangzhou Foreign Languages School for my first year of high school. Then, I went to Cincinnati Hills Christian Academy, which is located in Cincinnati, Ohio, and got my High school diploma there. I graduated from Rose-Hulman Institute of Technology with a Bachelor of Science degree with a double major in Computer Science and Mathematics with a concentration in discrete applied math. I am currently a Master Computer Science Student with a Specialization in Data Science at University of Southern California.
 
 ## Education
-### B.S. in Mathematics (Applied Discrete Mathematics track), Second Major Computer Science, Rose-Hulman Institute of Technology
+### B.S. in Applied Mathematics and Computer Science, Rose-Hulman Institute of Technology
 GPA: 3.7/4.0 <br/>
 Relevant Coursework:
 * Mathematical Modeling:
