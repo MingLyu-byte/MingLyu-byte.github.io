@@ -37,5 +37,3 @@ Relevant Coursework:
   * <kbd>21 - CSCI544 Applied Natural Language Processing (currently attending) </kbd>
 * Algorithms:
   * <kbd>20 - CSCI570 Analysis of Algorithms </kbd>
-
-## Experience
