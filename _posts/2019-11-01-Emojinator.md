@@ -180,7 +180,8 @@ class MyHyperModel(HyperModel):
 {% endraw %}
 {% endhighlight %}
 
-This is the model class
+This is the custimized model class using keras tuning. We can set search space for values such as filter numbers, learning rate and etc. Keras tuner helps automating the process
+of hyperparameter tuning. 
 
 {% highlight python %}
 {% raw %}
