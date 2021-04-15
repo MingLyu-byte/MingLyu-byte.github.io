@@ -62,7 +62,7 @@ hist_transfer_learning = vgg16.fit(image_train,labels_train,
 {% endhighlight %}
 
 <figure>
-	<img src="/assets/img/emojinator/VGG16_model_summary.PNG">
+	<img src="/assets/img/emojinator/VGG16_model_summary.png">
 	<figcaption>Model Summary</figcaption>
 </figure>
 
