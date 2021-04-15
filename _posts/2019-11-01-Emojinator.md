@@ -22,7 +22,7 @@ Deep learning is a method of machine learning that uses multiple layers to autom
 
 ## Input & Output
 
-The input is a simple image with hand in it. The output is the predicted emoji corresponding to the hand gesture.
+The input is a simple binary image with a hand in it. The output is the predicted emoji corresponding to the hand gesture.
 
 <figure class="third">
 	<img src="/assets/img/emojinator/1_input.png">
@@ -45,18 +45,19 @@ vgg16 = keras.Sequential(VGG16(weights = 'imagenet',input_shape = (50,50,3),incl
 vgg16.add(layers.GlobalAveragePooling2D())
 vgg16.add(layers.Dense(1024,activation = 'relu'))
 vgg16.add(layers.Dense(12,activation = 'softmax'))
-# freeze weights of convolution layers
+# freeze weights of the pretrained model
 vgg16.layers[0].trainable = False
 vgg16.compile(loss = 'sparse_categorical_crossentropy',
              optimizer = 'Adam',
              metrics = ['accuracy'])
 vgg16.summary()
-checkpt_transfer_learning = ModelCheckpoint('Project_LeNet_V3_Epoch100.h5',save_best_only=True,verbose=2)
+checkpt_savebest = ModelCheckpoint('Project_LeNet_V3_Epoch100.h5',save_best_only=True,verbose=2)
+checkpt_earlystop = EarlyStopping(patience=2,monitor="val_loss")
 hist_transfer_learning = vgg16.fit(image_train,labels_train,
-                epochs=200,
+                epochs=100,
                 verbose=2,
                 validation_split=0.2,
-                callbacks= [checkpt_transfer_learning])
+                callbacks= [checkpt_savebest,checkpt_earlystop])
 {% endraw %}
 {% endhighlight %}
 
