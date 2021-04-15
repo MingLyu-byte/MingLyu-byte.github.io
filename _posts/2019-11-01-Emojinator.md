@@ -73,13 +73,15 @@ The advantage of using transfer learning is that the pretrained model has learne
 {% highlight python %}
 {% raw %}
 class MyHyperModel(HyperModel):
+
     def __init__(self, input_shape, num_classes):
         self.num_classes = num_classes
         self.input_shape = input_shape
         if(num_classes == 2):
             self.val_acc = "val_binary_accuracy"
         else:
-            self.val_acc = "val_acc"   
+            self.val_acc = "val_acc"
+        
     def build(self, hp):
         # model build with hyperparameter tuning on all layers. Can be customized
         model = keras.Sequential()
@@ -138,7 +140,26 @@ class MyHyperModel(HyperModel):
                 )
             )
         )
+        model.add(
+                layers.Conv2D(
+                filters=hp.Int('conv_2_filter', min_value=32, max_value=64, step=16),
+                kernel_size=3,
+                activation='relu'
+            )
+        )
+        model.add(layers.MaxPooling2D(pool_size=2))
+        model.add(
+            layers.Dropout(rate=hp.Float(
+                'dropout_1',
+                min_value=0.0,
+                max_value=0.5,
+                default=0.25,
+                step=0.05,
+                )
+            )
+        )
         model.add(layers.Flatten())
+
         # binary classification or multiclass classificatio based on number of classes
         if(self.num_classes == 2):
             model.add(layers.Dense(1, activation='sigmoid'))
@@ -147,6 +168,7 @@ class MyHyperModel(HyperModel):
                           values=[1e-2, 1e-3, 1e-4,1e-5])),
                     loss='binary_crossentropy',
                     metrics=[keras.metrics.binary_accuracy])
+            
         else:
             model.add(layers.Dense(self.num_classes, activation='softmax'))
             model.compile(optimizer=keras.optimizers.Adam(
