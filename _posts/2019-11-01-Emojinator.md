@@ -66,7 +66,7 @@ hist_transfer_learning = vgg16.fit(image_train,labels_train,
 	<figcaption>Model Summary</figcaption>
 </figure>
 
-In the report, we use a CNN (Convolutional neural network) model. It is an outdated model. VGG-16 is a better model and is used for live demo and testing.
+The advantage of using transfer learning is that the pretrained model has learned quite a lot from other images and it saves us a lot of training time. We also tried the customized convolutional neural network and train the model from scratch with hyperparameters tuning using keras tuner.
 
 ### Customized Model and Keras HyperParameter Tuning
 
