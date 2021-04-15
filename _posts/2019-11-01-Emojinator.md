@@ -124,7 +124,7 @@ class MyHyperModel(HyperModel):
         )
         model.add(
                 layers.Conv2D(
-                filters=hp.Int('conv_2_filter', min_value=32, max_value=64, step=16),
+                filters=hp.Int('conv_2_filter', min_value=16, max_value=32, step=16),
                 kernel_size=3,
                 activation='relu'
             )
@@ -142,7 +142,7 @@ class MyHyperModel(HyperModel):
         )
         model.add(
                 layers.Conv2D(
-                filters=hp.Int('conv_2_filter', min_value=32, max_value=64, step=16),
+                filters=hp.Int('conv_2_filter', min_value=16, max_value=32, step=16),
                 kernel_size=3,
                 activation='relu'
             )
@@ -159,7 +159,11 @@ class MyHyperModel(HyperModel):
             )
         )
         model.add(layers.Flatten())
-
+        model.add(layers.Dense(units=hp.Int('units',
+                                            min_value=64,
+                                            max_value=512,
+                                            step=32)))
+                  
         # binary classification or multiclass classificatio based on number of classes
         if(self.num_classes == 2):
             model.add(layers.Dense(1, activation='sigmoid'))
