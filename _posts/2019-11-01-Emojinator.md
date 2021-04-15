@@ -35,19 +35,28 @@ We use the data from <https://github.com/akshaybahadur21/Emojinator/tree/master/
 
 ## Neural Network Architecture
 
+### Transfer Learning
+
 We use pretrained neural network **VGG16** as basic model to develop our neural network. We choose the transfer learning method here because it saves us a lot of time from training. We also freeze the weights in the pretrained neural network by setting vgg16.layers[0].trainable = False. The summary of the model is below the code section.
 
 {% highlight python %}
 {% raw %}
-vgg16 = Sequential(VGG16(weights = 'imagenet',input_shape = (50,50,3),include_top = False))
-vgg16.add(Flatten())
-vgg16.add(Dense(12,activation = 'relu'))
-vgg16.add(Dense(12,activation = 'softmax'))
+vgg16 = keras.Sequential(VGG16(weights = 'imagenet',input_shape = (50,50,3),include_top = False))
+vgg16.add(layers.GlobalAveragePooling2D())
+vgg16.add(layers.Dense(1024,activation = 'relu'))
+vgg16.add(layers.Dense(12,activation = 'softmax'))
+# freeze weights of convolution layers
 vgg16.layers[0].trainable = False
 vgg16.compile(loss = 'sparse_categorical_crossentropy',
              optimizer = 'Adam',
              metrics = ['accuracy'])
 vgg16.summary()
+checkpt_transfer_learning = ModelCheckpoint('Project_LeNet_V3_Epoch100.h5',save_best_only=True,verbose=2)
+hist_transfer_learning = vgg16.fit(image_train,labels_train,
+                epochs=200,
+                verbose=2,
+                validation_split=0.2,
+                callbacks= [checkpt_transfer_learning])
 {% endraw %}
 {% endhighlight %}
 
@@ -57,6 +66,134 @@ vgg16.summary()
 </figure>
 
 In the report, we use a CNN (Convolutional neural network) model. It is an outdated model. VGG-16 is a better model and is used for live demo and testing.
+
+### Customized Model and Keras HyperParameter Tuning
+
+{% highlight python %}
+{% raw %}
+class MyHyperModel(HyperModel):
+    def __init__(self, input_shape, num_classes):
+        self.num_classes = num_classes
+        self.input_shape = input_shape
+        if(num_classes == 2):
+            self.val_acc = "val_binary_accuracy"
+        else:
+            self.val_acc = "val_acc"   
+    def build(self, hp):
+        # model build with hyperparameter tuning on all layers. Can be customized
+        model = keras.Sequential()
+        model.add(
+                layers.Conv2D(
+                filters=hp.Int('conv_2_filter', min_value=32, max_value=64, step=16),
+                kernel_size=3,
+                activation='relu',
+                input_shape=self.input_shape
+            )
+        )
+        model.add(layers.MaxPooling2D(pool_size=2))
+        model.add(
+            layers.Dropout(rate=hp.Float(
+                'dropout_1',
+                min_value=0.0,
+                max_value=0.5,
+                default=0.25,
+                step=0.05,
+                )
+            )
+        )
+        model.add(
+                layers.Conv2D(
+                filters=hp.Int('conv_2_filter', min_value=32, max_value=64, step=16),
+                kernel_size=3,
+                activation='relu'
+            )
+        )
+        model.add(layers.MaxPooling2D(pool_size=2))
+        model.add(
+            layers.Dropout(rate=hp.Float(
+                'dropout_1',
+                min_value=0.0,
+                max_value=0.5,
+                default=0.25,
+                step=0.05,
+                )
+            )
+        )
+        model.add(
+                layers.Conv2D(
+                filters=hp.Int('conv_2_filter', min_value=32, max_value=64, step=16),
+                kernel_size=3,
+                activation='relu'
+            )
+        )
+        model.add(layers.MaxPooling2D(pool_size=2))
+        model.add(
+            layers.Dropout(rate=hp.Float(
+                'dropout_1',
+                min_value=0.0,
+                max_value=0.5,
+                default=0.25,
+                step=0.05,
+                )
+            )
+        )
+        model.add(layers.Flatten())
+        # binary classification or multiclass classificatio based on number of classes
+        if(self.num_classes == 2):
+            model.add(layers.Dense(1, activation='sigmoid'))
+            model.compile(optimizer=keras.optimizers.Adam(
+                hp.Choice('learning_rate',
+                          values=[1e-2, 1e-3, 1e-4,1e-5])),
+                    loss='binary_crossentropy',
+                    metrics=[keras.metrics.binary_accuracy])
+        else:
+            model.add(layers.Dense(self.num_classes, activation='softmax'))
+            model.compile(optimizer=keras.optimizers.Adam(
+                hp.Choice('learning_rate',
+                          values=[1e-2, 1e-3, 1e-4,1e-5])),
+                    loss='sparse_categorical_crossentropy',
+                    metrics=[keras.metrics.SparseCategoricalAccuracy(name="acc")])
+        return model
+{% endraw %}
+{% endhighlight %}
+
+This is the model class
+
+{% highlight python %}
+{% raw %}
+seed = 1
+exe_per_trial = 2
+max_epochs = 10
+n_epoch_search = 50
+output_dir = 'hyperparameter'
+project_name = 'Emojinator'
+hypermodel = MyHyperModel(num_classes = 12,input_shape = (50,50,3))
+tuner = Hyperband(
+        hypermodel,
+        objective = hypermodel.val_acc,
+        seed = 10,
+        executions_per_trial = exe_per_trial,
+        directory = output_dir,
+        project_name = project_name,
+        max_epochs = max_epochs
+)
+
+tuner.search_space_summary()
+tuner.search(image_train,labels_train, epochs = n_epoch_search, validation_split=0.2)
+
+# Show a summary of the search
+tuner.results_summary()
+
+# Retrieve the best model.
+best_model = tuner.get_best_models(num_models=1)[0]
+best_model.save(str(project_name + ".h5"))
+    
+model = keras.models.load_model(str(project_name + ".h5"))
+score = model.evaluate(image_train,labels_train, verbose=0)
+print(model.metrics_names)
+print(score)
+{% endraw %}
+{% endhighlight %}
 
 ## Image Processing
 
