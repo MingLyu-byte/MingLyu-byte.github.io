@@ -58,8 +58,8 @@ We load the image data from the folder_path directory.
 {% raw %}
 image_generator=ImageDataGenerator(validation_split=0.2,
                                 rescale=1./255,
-                                shear_range=0.2,
-                                zoom_range=0.2,
+                                width_shift_range=0.1,
+                                height_shift_range=0.1,
                                 vertical_flip=True)
 
 train_generator=image_generator.flow_from_directory(folder_path,
