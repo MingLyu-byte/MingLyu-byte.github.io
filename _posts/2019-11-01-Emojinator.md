@@ -267,7 +267,7 @@ This is a short live demo of our project. The prediction is not stable as it is 
 
 ![Alt Text](/assets/Projects/Emojinator_Live_Demo.gif)
 
-### For further details, please see the full report or the link to the code repo.
+<!-- ### For further details, please see the full report or the link to the code repo. -->
 
 <!-- ## Full Report
 <object data="/assets/Projects/Emojinator_Final_Report.pdf" type="application/pdf" width="300px" height="300px">
