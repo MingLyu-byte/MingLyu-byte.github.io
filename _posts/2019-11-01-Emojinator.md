@@ -51,6 +51,35 @@ mask = cv2.GaussianBlur(mask,(3,3),100)
 
 The examples are presented in the report.
 
+## Load Data
+We load the image data from the folder_path directory.
+
+{% highlight python %}
+{% raw %}
+image_generator=ImageDataGenerator(validation_split=0.2,
+                                rescale=1./255,
+                                shear_range=0.2,
+                                zoom_range=0.2,
+                                horizontal_flip=True)
+
+train_generator=image_generator.flow_from_directory(folder_path,
+                            target_size=(50,50),
+                            color_mode='rgb',
+                            batch_size=256,
+                            class_mode='sparse',
+                            subset="training",
+                            shuffle=True)
+    
+validation_generator = image_generator.flow_from_directory(folder_path,
+                            target_size=(50,50),
+                            color_mode='rgb',
+                            batch_size=256,
+                            class_mode='sparse',
+                            subset="validation",
+                            shuffle=True)
+{% endraw %}
+{% endhighlight %}
+
 ## Neural Network Architecture
 
 ### Transfer Learning
@@ -71,11 +100,10 @@ vgg16.compile(loss = 'sparse_categorical_crossentropy',
 vgg16.summary()
 checkpt_savebest = ModelCheckpoint('Project_LeNet_V3_Epoch100.h5',save_best_only=True,verbose=2)
 checkpt_earlystop = EarlyStopping(patience=2,monitor="val_loss")
-hist_transfer_learning = vgg16.fit(image_train,labels_train,
-                epochs=100,
-                verbose=2,
-                validation_split=0.2,
-                callbacks= [checkpt_savebest,checkpt_earlystop])
+hist_transfer_learning = vgg16.fit_generator(generator=train_generator,
+                   validation_data=validation_generator,
+                   epochs=100,
+                   callbacks=[checkpt_savebest,checkpt_earlystop])
 {% endraw %}
 {% endhighlight %}
 
@@ -223,9 +251,13 @@ tuner = Hyperband(
         max_epochs = max_epochs
 )
 
-tuner.search_space_summary()
-tuner.search(image_train,labels_train, epochs = n_epoch_search, validation_split=0.2)
-
+train_img,train_lables = train_generator.next()
+test_img,test_lables = validation_generator.next()
+tuner.search(train_img,train_lables, 
+             epochs = n_epoch_search,
+             validation_data=(test_img,test_lables),
+             batch_size = 256)
+             
 # Show a summary of the search
 tuner.results_summary()
 
@@ -234,8 +266,9 @@ best_model = tuner.get_best_models(num_models=1)[0]
 best_model.save(str(project_name + ".h5"))
     
 model = keras.models.load_model(str(project_name + ".h5"))
-score = model.evaluate(image_train,labels_train, verbose=0)
+score = model.evaluate(test_img,test_lables, verbose=0)
 print(model.metrics_names)
+print(score)
 print(score)
 {% endraw %}
 {% endhighlight %}
