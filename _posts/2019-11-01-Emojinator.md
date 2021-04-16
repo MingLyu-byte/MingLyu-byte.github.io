@@ -33,6 +33,24 @@ The input is a simple binary image with a hand in it. The output is the predicte
 
 We use the data from <https://github.com/akshaybahadur21/Emojinator/tree/master/gestures> and <https://github.com/akshaybahadur21/Emojinator/tree/master/hand_emo>. The idea of this project starts from the presentation in the github repo mentioned above. We want to reconstruct the application by ourselves. Thanks Akshay Bahadur and Raghav Patnecha for data source.
 
+## Image Processing
+
+We set some color thresholds to that differ the hand from the background. There are couple image processing methods we use here including erosion, dilation and gaussian filters. The purpose of this step is to extract the hand part as much as possible and also excludes unnecessary parts.
+
+{% highlight python %}
+{% raw %}
+hsv = cv2.cvtColor(image_capture, cv2.COLOR_BGR2HSV)
+lower_skin = np.array([0,15,70], dtype=np.uint8)
+upper_skin = np.array([20,150,255], dtype=np.uint8)
+mask = cv2.inRange(hsv, lower_skin, upper_skin)
+mask = cv2.erode(mask,kernel,iterations = 2)
+mask = cv2.dilate(mask,kernel,iterations = 7)
+mask = cv2.GaussianBlur(mask,(3,3),100)
+{% endraw %}
+{% endhighlight %}
+
+The examples are presented in the report.
+
 ## Neural Network Architecture
 
 ### Transfer Learning
@@ -66,9 +84,8 @@ hist_transfer_learning = vgg16.fit(image_train,labels_train,
 	<figcaption>Model Summary</figcaption>
 </figure>
 
-The advantage of using transfer learning is that the pretrained model has learned quite a lot from other images and it saves us a lot of training time. We also tried the customized convolutional neural network and train the model from scratch with hyperparameters tuning using keras tuner.
-
 ### Customized Model and Keras HyperParameter Tuning
+We also tried the customized convolutional neural network and train the model from scratch with hyperparameters tuning using keras tuner. Below is the code section.
 
 {% highlight python %}
 {% raw %}
@@ -223,25 +240,9 @@ print(score)
 {% endraw %}
 {% endhighlight %}
 
-## Image Processing
+There are also several hyperparameters that we can set to the tuner. Since we have limited computing resources, we set a limit to the number of combinations that we are going to try and also to the number of epochs we get to train on each combination. The keras tuner will give us the best model based on the evaluation metrics selected.
 
-We set some color thresholds to that differ the hand from the background. There are couple image processing methods we use here including erosion, dilation and gaussian filters. The purpose of this step is to extract the hand part as much as possible and also excludes unnecessary parts.
-
-{% highlight python %}
-{% raw %}
-hsv = cv2.cvtColor(image_capture, cv2.COLOR_BGR2HSV)
-lower_skin = np.array([0,15,70], dtype=np.uint8)
-upper_skin = np.array([20,150,255], dtype=np.uint8)
-mask = cv2.inRange(hsv, lower_skin, upper_skin)
-mask = cv2.erode(mask,kernel,iterations = 2)
-mask = cv2.dilate(mask,kernel,iterations = 7)
-mask = cv2.GaussianBlur(mask,(3,3),100)
-{% endraw %}
-{% endhighlight %}
-
-The examples are presented in the report.
-
-## OpenCV
+## OpenCV and Display of Emoji
 
 The code below display the predicted emoji. It adds a smooth transition between the emoji picture and the background so it does not look like the two are overlapping.
 
